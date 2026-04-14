@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unique Nails & Hair Salon | Mountain View, CA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Unique Nails & Hair Salon",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1247 W El Camino Real",
+    "addressLocality": "Mountain View",
+    "addressRegion": "CA",
+    "postalCode": "94040",
+    "addressCountry": "US"
+  },
+  "telephone": "(650) 964-9409",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "64"
+  }
+}
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --primary: #7b2d8b;
+    --secondary: #9b59b6;
+    --accent: #c0c0d0;
+    --bg: #fdfaff;
+    --text: #2d1a3d;
+    --light: #f5eeff;
+  }
+  body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); }
+  
+  /* HERO */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('images/photo_1.jpg') center/cover no-repeat;
+    filter: brightness(0.45);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    padding: 2rem;
+    max-width: 800px;
+  }
+  .hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+  }
+  .hero-content .tagline {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    opacity: 0.92;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+  .hero-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  .stars { color: #c0c0d0; font-size: 1.3rem; }
+  .hero-cta {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin: 0 0.5rem;
+  }
+  .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+  .hero-cta.outline {
+    background: transparent;
+    border: 2px solid white;
+  }
+  
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1rem 2rem;
+    background: rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-brand { color: white; font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; }
+  .nav-links { display: flex; gap: 1.5rem; }
+  .nav-links a { color: white; text-decoration: none; font-size: 0.9rem; opacity: 0.85; transition: opacity 0.2s; }
+  .nav-links a:hover { opacity: 1; }
+  @media (max-width: 600px) { .nav-links { display: none; } }
+  
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+  .section-divider {
+    width: 60px; height: 4px;
+    background: var(--accent);
+    margin-bottom: 2rem;
+    border-radius: 2px;
+  }
+  
+  /* ABOUT */
+  .about { background: var(--light); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
+  .about-img { border-radius: 12px; overflow: hidden; }
+  .about-img img { width: 100%; height: 350px; object-fit: cover; }
+  .about-text p { line-height: 1.8; color: #555; font-size: 1.05rem; margin-bottom: 1rem; }
+  .about-stat {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+  .stat { text-align: center; }
+  .stat-number { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--primary); font-weight: 700; }
+  .stat-label { font-size: 0.85rem; color: #888; }
+  
+  /* HOURS */
+  .hours { background: var(--secondary); color: white; }
+  .hours .section-title { color: white; }
+  .hours-table { width: 100%; max-width: 500px; border-collapse: collapse; }
+  .hours-table tr { border-bottom: 1px solid rgba(255,255,255,0.15); }
+  .hours-table td { padding: 0.8rem 0; }
+  .hours-table .day { font-weight: 600; }
+  .hours-table .time { text-align: right; opacity: 0.85; }
+  
+  /* GALLERY */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .gallery-item { border-radius: 10px; overflow: hidden; aspect-ratio: 4/3; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+  .gallery-item:hover img { transform: scale(1.05); }
+  
+  /* REVIEWS */
+  .reviews { background: var(--light); }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .review-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    border-left: 4px solid var(--accent);
+  }
+  .review-stars { font-size: 1.2rem; margin-bottom: 0.8rem; }
+  .review-text { font-style: italic; color: #555; line-height: 1.7; margin-bottom: 1rem; font-size: 0.95rem; }
+  .review-author { font-weight: 600; color: var(--primary); font-size: 0.9rem; }
+  
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+  .contact-info { display: flex; flex-direction: column; gap: 1.2rem; }
+  .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+  .contact-icon { font-size: 1.5rem; }
+  .contact-label { font-weight: 600; color: var(--primary); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .contact-value { color: #555; }
+  .contact-value a { color: var(--primary); text-decoration: none; font-weight: 600; }
+  .map-wrapper { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+  .map-wrapper iframe { width: 100%; height: 320px; border: none; display: block; }
+  
+  /* PAYMENT */
+  .payment { background: var(--primary); color: white; text-align: center; }
+  .payment .section-title { color: white; }
+  .payment-methods {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .payment-badge {
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.3);
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    backdrop-filter: blur(5px);
+  }
+  
+  /* OWNER PORTAL */
+  .owner-portal {
+    background: #f8f8f8;
+    border-top: 3px solid var(--accent);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  .owner-portal h3 { font-family: 'Playfair Display', serif; color: #333; margin-bottom: 0.5rem; }
+  .owner-portal p { color: #777; margin-bottom: 1.5rem; font-size: 0.9rem; }
+  .portal-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+  .portal-btn {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #444;
+    transition: all 0.2s;
+  }
+  .portal-btn:hover { border-color: var(--accent); color: var(--accent); }
+  
+  /* MODAL */
+  .modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal.open { display: flex; }
+  .modal-box {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 480px;
+    width: 90%;
+    position: relative;
+  }
+  .modal-close {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #999;
+    background: none;
+    border: none;
+  }
+  .modal h3 { font-family: 'Playfair Display', serif; margin-bottom: 1rem; color: var(--primary); }
+  .modal input, .modal textarea {
+    width: 100%; padding: 0.8rem; border: 1px solid #ddd;
+    border-radius: 8px; margin-bottom: 0.8rem;
+    font-family: 'Inter', sans-serif; font-size: 0.95rem;
+  }
+  .modal textarea { height: 100px; resize: vertical; }
+  .modal-submit {
+    width: 100%; padding: 1rem;
+    background: var(--accent); color: white;
+    border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 600;
+    cursor: pointer;
+  }
+  .modal-submit:hover { opacity: 0.9; }
+  
+  /* FOOTER */
+  footer {
+    background: #111;
+    color: #aaa;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+  }
+  footer strong { color: white; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Unique Nails & Hair Salon</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#hours">Hours</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1>Unique Nails & Hair Salon</h1>
+    <p class="tagline">Nails & hair you'll love · El Camino Real, Mountain View</p>
+    <div class="hero-rating">
+      <span class="stars">★</span>
+      <strong>4.7</strong> · 64 Google Reviews
+    </div>
+    <br>
+    <a href="tel:(650) 964-9409" class="hero-cta">📞 Call Us</a>
+    <a href="#contact" class="hero-cta outline">Find Us</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img">
+        <img src="images/photo_2.jpg" alt="Unique Nails & Hair Salon" loading="lazy">
+      </div>
+      <div class="about-text">
+        <h2 class="section-title">Our Story</h2>
+        <div class="section-divider"></div>
+        <p>Welcome to <strong>Unique Nails & Hair Salon</strong> — your trusted nail & hair salon right here in Mountain View. We've been serving our community with pride, quality, and a personal touch that keeps our customers coming back.</p>
+        <p>Located at 1247 W El Camino Real, Mountain View, CA 94040, USA, we're conveniently situated in the heart of Mountain View. We take pride in every customer we serve.</p>
+        <div class="about-stat">
+          <div class="stat">
+            <div class="stat-number">4.7★</div>
+            <div class="stat-label">Google Rating</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">64+</div>
+            <div class="stat-label">Happy Customers</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">MV</div>
+            <div class="stat-label">Mountain View</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS -->
+<section class="hours" id="hours">
+  <div class="container">
+    <h2 class="section-title">Hours</h2>
+    <div class="section-divider"></div>
+    <table class='hours-table'><tr><td class='day'>Monday</td><td class='time'>10:00 AM – 7:00 PM</td></tr><tr><td class='day'>Tuesday</td><td class='time'>10:00 AM – 7:00 PM</td></tr><tr><td class='day'>Wednesday</td><td class='time'>10:00 AM – 7:00 PM</td></tr><tr><td class='day'>Thursday</td><td class='time'>10:00 AM – 7:00 PM</td></tr><tr><td class='day'>Friday</td><td class='time'>10:00 AM – 7:00 PM</td></tr><tr><td class='day'>Saturday</td><td class='time'>10:00 AM – 6:00 PM</td></tr><tr><td class='day'>Sunday</td><td class='time'>11:00 AM – 5:00 PM</td></tr></table>
+    <p style="margin-top:1.5rem; opacity:0.8;">📞 Have questions? Call us at <strong>(650) 964-9409</strong></p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <h2 class="section-title">Gallery</h2>
+    <div class="section-divider"></div>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="images/photo_1.jpg" alt="Unique Nails & Hair Salon" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/photo_2.jpg" alt="Unique Nails & Hair Salon" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/photo_3.jpg" alt="Unique Nails & Hair Salon" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/photo_4.jpg" alt="Unique Nails & Hair Salon" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/photo_5.jpg" alt="Unique Nails & Hair Salon" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <h2 class="section-title">What People Say</h2>
+    <div class="section-divider"></div>
+    <div class="reviews-grid">
+      
+        <div class="review-card">
+          <div class="review-stars" style="color:#c0c0d0">★★★★★</div>
+          <p class="review-text">"Anne did such a great job with my nails. I stopped by on a work trip and have super high expectations for nails. The other reviews made me v confused but decided to go for it. They are actually 10/10. Service included cuticles and everything. Also very reasonably priced (I’m from a big city so compa"</p>
+          <p class="review-author">— Stephanie Dell</p>
+        </div>
+        <div class="review-card">
+          <div class="review-stars" style="color:#c0c0d0">★★★★★</div>
+          <p class="review-text">"Called last minute to check for availability but Ann was able to squeeze in me and my mom! finished in a timely matter and able to accommodate my design request!! I accidentally messed up a nail while drying but she was able to fix it and now you can’t even tell it was ever messed up! Set turned out"</p>
+          <p class="review-author">— Emma Kunde</p>
+        </div>
+        <div class="review-card">
+          <div class="review-stars" style="color:#c0c0d0">★★★★★</div>
+          <p class="review-text">"I loved my nails. If you’re looking for a place to go, this’s the one. Very good customer service from Ann and Kim. Very affordable and excellent job. I always ask for gel and last for good 3-4 weeks."</p>
+          <p class="review-author">— Alma Davalos</p>
+        </div>
+        <div class="review-card">
+          <div class="review-stars" style="color:#c0c0d0">★★★★★</div>
+          <p class="review-text">"I got my nails done by Ann and they were really nice and professional. They did an amazing job and I will definitely be going back!"</p>
+          <p class="review-author">— Lydia Rose</p>
+        </div>
+        <div class="review-card">
+          <div class="review-stars" style="color:#c0c0d0">★★★★★</div>
+          <p class="review-text">"Yesterday I went to the Unique Nail salon to have full set hybrid gel, pedicure and waxing. Thank you Ann and Tina for helping me to have such a beautiful nails for my upcoming Coachella trip. Amazing service, very careful in every detail, reasonable price, and friendly!!! Will come back more!!!🥰🥰🥰"</p>
+          <p class="review-author">— Jenny Dang</p>
+        </div>
+    </div>
+    <p style="margin-top:2rem; text-align:center; color:#888;">
+      See all reviews on <a href="https://www.google.com/maps/search/?api=1&query=1247+W+El+Camino+Real%2C+Mountain+View%2C+CA+94040%2C+USA" target="_blank" style="color:var(--primary); font-weight:600;">Google Maps ↗</a>
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Find Us</h2>
+    <div class="section-divider"></div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <span class="contact-icon">📍</span>
+          <div>
+            <div class="contact-label">Address</div>
+            <div class="contact-value">1247 W El Camino Real, Mountain View, CA 94040, USA</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📞</span>
+          <div>
+            <div class="contact-label">Phone</div>
+            <div class="contact-value"><a href="tel:(650) 964-9409">(650) 964-9409</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">⭐</span>
+          <div>
+            <div class="contact-label">Rating</div>
+            <div class="contact-value">4.7 stars · 64 reviews</div>
+          </div>
+        </div>
+      </div>
+      <div class="map-wrapper">
+        <iframe src="https://maps.google.com/maps?q=1247+W+El+Camino+Real%2C+Mountain+View%2C+CA+94040%2C+USA&output=embed&z=15" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT -->
+<section class="payment">
+  <div class="container">
+    <h2 class="section-title">Payment Methods</h2>
+    <div class="section-divider" style="margin:0 auto 2rem;"></div>
+    <p style="opacity:0.85; margin-bottom:0;">We make it easy to pay your way.</p>
+    <div class="payment-methods">
+      <div class="payment-badge">💳 Cash</div>
+      <div class="payment-badge">📱 Venmo</div>
+      <div class="payment-badge">💛 Zelle</div>
+      <div class="payment-badge">🅿️ PayPal</div>
+      <div class="payment-badge">💵 Credit Cards</div>
+    </div>
+  </div>
+</section>
+
+<!-- OWNER PORTAL -->
+<div class="owner-portal">
+  <h3>🔑 Owner Portal</h3>
+  <p>Keep your business info up to date</p>
+  <div class="portal-buttons">
+    <button class="portal-btn" onclick="openModal('modal-photo')">📷 Submit a Photo</button>
+    <button class="portal-btn" onclick="openModal('modal-menu')">✏️ Update Menu / Prices</button>
+    <button class="portal-btn" onclick="openModal('modal-hours')">🕐 Update Hours</button>
+  </div>
+</div>
+
+<!-- MODALS -->
+<div id="modal-photo" class="modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-photo')">✕</button>
+    <h3>Submit a Photo</h3>
+    <form action="https://formspree.io/f/mjgpndvy" method="POST">
+      <input type="hidden" name="_subject" value="New Photo Submission - Unique Nails & Hair Salon">
+      <input type="hidden" name="_to" value="sms:6505753234">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="url" name="photo_url" placeholder="Photo link (Google Drive, Dropbox, etc.)">
+      <textarea name="description" placeholder="Describe the photo..."></textarea>
+      <button type="submit" class="modal-submit">Send Photo</button>
+    </form>
+  </div>
+</div>
+
+<div id="modal-menu" class="modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-menu')">✕</button>
+    <h3>Update Menu / Prices</h3>
+    <form action="https://formspree.io/f/mjgpndvy" method="POST">
+      <input type="hidden" name="_subject" value="Menu Update - Unique Nails & Hair Salon">
+      <input type="text" name="name" placeholder="Your name" required>
+      <textarea name="update" placeholder="Describe what needs updating (new items, price changes, removals...)" required></textarea>
+      <button type="submit" class="modal-submit">Submit Update</button>
+    </form>
+  </div>
+</div>
+
+<div id="modal-hours" class="modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-hours')">✕</button>
+    <h3>Update Hours</h3>
+    <form action="https://formspree.io/f/mjgpndvy" method="POST">
+      <input type="hidden" name="_subject" value="Hours Update - Unique Nails & Hair Salon">
+      <input type="text" name="name" placeholder="Your name" required>
+      <textarea name="hours" placeholder="New hours (e.g. Mon-Fri: 9am-6pm, Sat: 10am-4pm, Sun: Closed)" required></textarea>
+      <button type="submit" class="modal-submit">Submit Update</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <strong>Unique Nails & Hair Salon</strong> · 1247 W El Camino Real, Mountain View, CA 94040, USA · <a href="tel:(650) 964-9409" style="color:#aaa">(650) 964-9409</a><br>
+  <span style="font-size:0.8rem; opacity:0.6; margin-top:0.5rem; display:block;">© 2025 Unique Nails & Hair Salon · Mountain View, CA</span>
+</footer>
+
+<script>
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+document.querySelectorAll('.modal').forEach(m => m.addEventListener('click', function(e) {
+  if (e.target === this) this.classList.remove('open');
+}));
+</script>
+</body>
+</html>
